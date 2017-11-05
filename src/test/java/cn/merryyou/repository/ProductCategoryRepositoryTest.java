@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,13 +22,13 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
+//@Transactional
 public class ProductCategoryRepositoryTest {
 
     @Autowired
     private ProductCategoryRepository categoryRepository;
 
     @Test
-    @Transactional
     public void save(){
         ProductCategory category = saveProductCategory();
         log.info(category.toString());
@@ -44,7 +43,6 @@ public class ProductCategoryRepositoryTest {
     }
 
     @Test
-    @Transactional
     public void findOne(){
         ProductCategory category = saveProductCategory();
         ProductCategory productCategory = categoryRepository.findOne(category.getCategoryId());
@@ -53,7 +51,6 @@ public class ProductCategoryRepositoryTest {
     }
 
     @Test
-    @Transactional
     public void findByCategoryTypeIn() throws Exception {
         ProductCategory category = saveProductCategory();
         List<Integer> list = Arrays.asList(category.getCategoryId());
