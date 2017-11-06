@@ -1,31 +1,29 @@
-package cn.merryyou.dataobject;
+package cn.merryyou.dto;
 
-import cn.merryyou.emum.OrderStatusEnus;
-import cn.merryyou.emum.PayStatusEnum;
+import cn.merryyou.dataobject.OrderDetail;
+import cn.merryyou.serializer.Date2LongSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
- * Created on 2017/11/5 0005.
+ * Created on 2017/11/6 0006.
  *
  * @author zlf
  * @email i@merryyou.cn
  * @since 1.0
  */
-@Entity
 @Data
-@DynamicUpdate
-public class OrderMaster {
-
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL)
+public class OrderDTO {
     /**
      * 订单ID
      */
-    @Id
     private String orderId;
     /**
      * 买家名字
@@ -54,18 +52,17 @@ public class OrderMaster {
     /**
      * 订单状态
      */
-    private Integer orderStatus = OrderStatusEnus.NEW.getCode();
+    private Integer orderStatus;
 
     /**
      * 支付状态 0 未支付
      */
-    private Integer payStatus = PayStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
-
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
-//    @Transient
-//    private List<OrderDetail> orderDetailList;
-
+    private List<OrderDetail> orderDetailList = new ArrayList<>();
 }

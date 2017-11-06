@@ -35,5 +35,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile 'mysql:mysql-connector-java:8.0.8-dmr'
 	compile 'org.projectlombok:lombok:1.16.18'
+	compile 'com.google.code.gson:gson:2.8.2'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
