@@ -6,6 +6,7 @@ import cn.merryyou.dto.OrderDTO;
 import cn.merryyou.emum.ResultEnum;
 import cn.merryyou.exception.SellException;
 import cn.merryyou.from.OrderForm;
+import cn.merryyou.service.BuyerService;
 import cn.merryyou.service.OrderService;
 import cn.merryyou.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,9 @@ public class BuyerOrderController {
 
     @Autowired
     private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -75,11 +79,16 @@ public class BuyerOrderController {
     //订单详情
     @GetMapping("/detail")
     public ResultVO<OrderDTO> detail(@RequestParam("openid") String openid,
-                                     @RequestParam(value = "orderId",defaultValue = "") String orderId) {
-        //TODO
-        OrderDTO orderDTO = orderService.findOne(openid);
+                                     @RequestParam(value = "orderId") String orderId) {
+        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
         return ResultVOUtil.success(orderDTO);
     }
 
     //取消订单
+    @PostMapping("cancle")
+    public ResultVO cancle(@RequestParam("openid") String openid,
+                           @RequestParam("orderId") String orderId) {
+        buyerService.cancleOrder(openid, orderId);
+        return ResultVOUtil.success();
+    }
 }
