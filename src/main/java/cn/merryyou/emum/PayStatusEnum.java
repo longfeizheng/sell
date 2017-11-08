@@ -10,7 +10,7 @@ import lombok.Getter;
  * @since 1.0
  */
 @Getter
-public enum PayStatusEnum {
+public enum PayStatusEnum implements CodeEnmu {
     WAIT(0, "未支付"),
     SUCCESS(1, "支付成功");
 

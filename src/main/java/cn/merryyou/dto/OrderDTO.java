@@ -1,7 +1,11 @@
 package cn.merryyou.dto;
 
 import cn.merryyou.dataobject.OrderDetail;
+import cn.merryyou.emum.OrderStatusEnus;
+import cn.merryyou.emum.PayStatusEnum;
 import cn.merryyou.serializer.Date2LongSerializer;
+import cn.merryyou.utils.EnumUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -65,4 +69,14 @@ public class OrderDTO {
     private Date updateTime;
 
     private List<OrderDetail> orderDetailList = new ArrayList<>();
+
+    @JsonIgnore
+    public OrderStatusEnus getOrderStatusEnum() {
+        return EnumUtil.getByCode(this.getOrderStatus(), OrderStatusEnus.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(this.getPayStatus(), PayStatusEnum.class);
+    }
 }

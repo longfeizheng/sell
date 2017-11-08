@@ -10,7 +10,7 @@ import lombok.Getter;
  * @since 1.0
  */
 @Getter
-public enum OrderStatusEnus {
+public enum OrderStatusEnus implements CodeEnmu{
     NEW(0,"新订单"),
     FINISHED(1,"完结"),
     CANCLE(2,"已取消");
