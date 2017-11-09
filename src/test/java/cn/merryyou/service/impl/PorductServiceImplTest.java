@@ -1,6 +1,7 @@
 package cn.merryyou.service.impl;
 
 import cn.merryyou.dataobject.ProductInfo;
+import cn.merryyou.emum.ProductStatusEnum;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,15 +39,15 @@ public class PorductServiceImplTest {
     public void findUpAll() throws Exception {
         List<ProductInfo> all = productService.findUpAll();
         Assert.assertNotNull(all);
-        Assert.assertEquals(1,all.size());
+        Assert.assertEquals(1, all.size());
     }
 
     @Test
     public void findAll() throws Exception {
-        PageRequest pageRequest = new PageRequest(0,3);
+        PageRequest pageRequest = new PageRequest(0, 3);
         Page<ProductInfo> infos = productService.findAll(pageRequest);
         Assert.assertNotNull(infos);
-        Assert.assertEquals(1,infos.getTotalPages());
+        Assert.assertEquals(1, infos.getTotalPages());
     }
 
     @Test
@@ -61,6 +62,18 @@ public class PorductServiceImplTest {
         productInfo.setProductPrice(new BigDecimal(18888.3));
         ProductInfo info = productService.save(productInfo);
         Assert.assertNotNull(info);
+    }
+
+    @Test
+    public void onSale() {
+        ProductInfo productInfo = productService.onSale("123");
+        Assert.assertTrue("商品上架",productInfo.getProductStatus()== ProductStatusEnum.UP.getCode());
+    }
+
+    @Test
+    public void offSale() {
+        ProductInfo productInfo = productService.offSale("123");
+        Assert.assertTrue("商品下架",productInfo.getProductStatus()== ProductStatusEnum.DOWN.getCode());
     }
 
 }

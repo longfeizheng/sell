@@ -74,6 +74,12 @@ public class SellerOrderController {
         return new ModelAndView("common/success", map);
     }
 
+    /**
+     * 商品详情
+     * @param orderId
+     * @param map
+     * @return
+     */
     @GetMapping("detail")
     public ModelAndView detail(@RequestParam("orderId") String orderId,
                                Map<String, Object> map) {
@@ -92,6 +98,12 @@ public class SellerOrderController {
         return new ModelAndView("order/detail", map);
     }
 
+    /**
+     * 商品完结
+     * @param orderId
+     * @param map
+     * @return
+     */
     @GetMapping("finish")
     public ModelAndView finish(@RequestParam("orderId") String orderId,
                                Map<String, Object> map) {
