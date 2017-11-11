@@ -10,3 +10,10 @@ spring:
     default-property-inclusion: non_null
 server:
   context-path: /sell
+#mybatis:
+#  mapper-locations:
+
+
+#apache ab
+#ab -n 100 -c 100 http://www.baidu.com    -n 100 请求  -c 100 人  -c 60秒
+#ab -t 60 -c 100 http://www.baidu.com  60秒内100个人请求
