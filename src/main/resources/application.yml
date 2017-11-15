@@ -10,6 +10,11 @@ spring:
     default-property-inclusion: non_null
 server:
   context-path: /sell
+  port: 8080
+wechat:
+  mpAppId: wxb962cbf908779e5e
+  mpAppScret: 01d65e5f44d6e2d777996dc60e94ea58
+
 #mybatis:
 #  mapper-locations:
 

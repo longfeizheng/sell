@@ -24,6 +24,7 @@ public enum ResultEnum {
     ORDER_PAY_STATUS_ERROR(17, "订单支付状态不正确"),
     CART_EMPTY(18, "购物车为空"),
     ORDER_OWNER_ERROR(19, "该订单不属于当前用户"),
+    WECHAT_MP_ERROR(20, "微信公共账号方面错误"),
     ORDER_CANCEL_SUCCESS(22,"订单取消成功"),
     ORDER_FINISH_SUCCESS(22,"订单取消成功"),
     PRODUCT_STATUS_ERROR(23,"商品状态不正确"),
