@@ -14,6 +14,10 @@ server:
 wechat:
   mpAppId: wxb962cbf908779e5e
   mpAppScret: 01d65e5f44d6e2d777996dc60e94ea58
+  mchId: 1234123124
+  mchKey: 12341241241
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://merryyou.cn/sell/pay/notify
 
 #mybatis:
 #  mapper-locations:

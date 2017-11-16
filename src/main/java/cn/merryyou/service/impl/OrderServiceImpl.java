@@ -13,6 +13,7 @@ import cn.merryyou.exception.SellException;
 import cn.merryyou.repository.OrderDetailRepository;
 import cn.merryyou.repository.OrderMasterRepository;
 import cn.merryyou.service.OrderService;
+import cn.merryyou.service.PayService;
 import cn.merryyou.service.ProductService;
 import cn.merryyou.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -49,6 +50,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private PayService payService;
 
     @Override
     @Transactional
@@ -151,7 +155,7 @@ public class OrderServiceImpl implements OrderService {
         productService.increaseStock(cartDTOList);
         //如果已支付，需要退款
         if (orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            //TODO
+            payService.refund(orderDTO);
         }
         return orderDTO;
     }
