@@ -8,16 +8,26 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 192.168.0.129
+    port: 6379
 server:
   context-path: /sell
   port: 8080
 wechat:
   mpAppId: wxb962cbf908779e5e
   mpAppScret: 01d65e5f44d6e2d777996dc60e94ea58
+  openAppId: 123455
+  openAppScret: 123124
   mchId: 1234123124
   mchKey: 12341241241
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://merryyou.cn/sell/pay/notify
+
+projectUrl:
+  wechatMpAuthorize: http://merryyou.s1.natapp.cc/
+  wechatOpenAuthorize: http://merryyou.s1.natapp.cc/
+  sell: http://merryyou.s1.natapp.cc/
 
 #mybatis:
 #  mapper-locations:
