@@ -15,19 +15,21 @@ server:
   context-path: /sell
   port: 8080
 wechat:
-  mpAppId: wxb962cbf908779e5e
+  mpAppId: wxd898fcb01713c658
   mpAppScret: 01d65e5f44d6e2d777996dc60e94ea58
   openAppId: 123455
   openAppScret: 123124
-  mchId: 1234123124
-  mchKey: 12341241241
-  keyPath: /var/weixin_cert/h5.p12
-  notifyUrl: http://merryyou.cn/sell/pay/notify
+  mchId: 1483469312
+  mchKey: C5245D70627C1F8E9964D494B0735025
+  keyPath: D:/ngrok/h5.p12
+  notifyUrl: http://merryyou.mynatapp.cc/sell/pay/notify
+  templateId:
+    orderStatus: 12344
 
 projectUrl:
-  wechatMpAuthorize: http://merryyou.s1.natapp.cc/
-  wechatOpenAuthorize: http://merryyou.s1.natapp.cc/
-  sell: http://merryyou.s1.natapp.cc/
+  wechatMpAuthorize: http://merryyou.mynatapp.cc
+  wechatOpenAuthorize: http://merryyou.mynatapp.cc
+  sell: http://merryyou.mynatapp.cc
 
 #mybatis:
 #  mapper-locations:

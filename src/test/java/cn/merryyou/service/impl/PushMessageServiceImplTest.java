@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * Created on 2017/11/16 0016.
+ * Created on 2017/11/18 0018.
  *
  * @author zlf
  * @email i@merryyou.cn
@@ -18,24 +18,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class PayServiceImplTest {
-
-    @Autowired
-    private PayServiceImpl payService;
+public class PushMessageServiceImplTest {
 
     @Autowired
     private OrderServiceImpl orderService;
 
-    @Test
-    public void create() {
-        OrderDTO orderDTO = orderService.findOne("1509979504584520647");
-        payService.create(orderDTO);
-    }
+    @Autowired
+    private PushMessageServiceImpl pushMessage;
 
     @Test
-    public void refund() {
-        OrderDTO orderDTO = orderService.findOne("1111111111111");
-        payService.refund(orderDTO);
+    public void orderStatus() throws Exception {
+        OrderDTO orderDTO = orderService.findOne("orderId");
+        pushMessage.orderStatus(orderDTO);
     }
 
 }
