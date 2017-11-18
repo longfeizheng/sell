@@ -11,13 +11,11 @@ spring:
   redis:
     host: 192.168.0.129
     port: 6379
-  profiles:
-    active: dev
 server:
   context-path: /sell
   port: 8080
 wechat:
-  mpAppId: wxd898fcb01713c658
+  mpAppId: wxb962cbf908779e5e
   mpAppScret: 01d65e5f44d6e2d777996dc60e94ea58
   openAppId: 123455
   openAppScret: 123124
@@ -35,6 +33,7 @@ projectUrl:
 
 #mybatis:
 #  mapper-locations:
+
 
 #apache ab
 #ab -n 100 -c 100 http://www.baidu.com    -n 100 请求  -c 100 人  -c 60秒

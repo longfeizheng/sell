@@ -37,7 +37,7 @@ public class WechatController {
     @Autowired
     private ProjectUrlConfig projectUrlConfig;
 
-    @GetMapping("authorize")
+    @GetMapping("/authorize")
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //1.配置
         //2.调用方法
@@ -59,6 +59,7 @@ public class WechatController {
             throw new SellException(ResultEnum.WECHAT_MP_ERROR.getCode(), e.getError().getErrorMsg());
         }
         String openId = wxMpOAuth2AccessToken.getOpenId();
+        log.info("【获得openid】openid={}", openId);
 
         return "redirect:" + returnUrl + "?openid=" + openId;
     }
@@ -86,4 +87,5 @@ public class WechatController {
         return "redirect:" + returnUrl + "?openid=" + openId;
     }
 
+    //https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb962cbf908779e5e&redirect_uri=http://merryyou.mynatapp.cc/sell/weixin&response_type=snsapi_base&scope=SCOPE&state=STATE#wechat_redirect
 }
